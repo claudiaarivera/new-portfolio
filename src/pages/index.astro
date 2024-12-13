@@ -1,16 +1,24 @@
 ---
-
+import Layout from "./../layouts/Layout.astro";
+import Header from "./../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import WorkExperience from "../components/WorkExperience.astro";
+import Projects from "../components/Projects.astro";
+import About from "../components/About.astro";
+import Footer from "../components/Footer.astro";
+import '@fontsource/onest/300.css';
+import '@fontsource/onest/400.css';
+import '@fontsource/onest/500.css';
+import '@fontsource/onest/600.css';
+import '@fontsource/onest/700.css';
+import '@fontsource/onest/800.css';
+import '@fontsource/onest/900.css';
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Claudia Rivera — Desarrolladora frontend" description="Claudia Rivera, desarrolladora frontend ubicada en Lima, Perú.">
+	<Header />
+	<Hero />
+	<WorkExperience	/>
+	<Projects />
+	<About />
+	<Footer />
+</Layout>

@@ -1,0 +1,154 @@
+---
+import Section from "../components/Section.astro";
+import ArrowUpRight from "../icons/ArrowUpRight.astro";
+import Github from "../icons/Github.astro";
+
+const technologies = {
+  angular: {
+    name: "Angular",
+    classes: "text-fuchsia-800 border-fuchsia-100 from-fuchsia-100",
+  },
+  tailwind: {
+    name: "Tailwind",
+    classes: "text-sky-800 border-sky-100 from-sky-100",
+  },
+  rxjs: {
+    name: "RxJS",
+    classes: "text-pink-800 border-pink-100 from-pink-100",
+  },
+  hotToast: {
+    name: "Hot toast",
+    classes: "text-orange-800 border-orange-100 from-orange-100",
+  },
+  openMateoApi: {
+    name: "Open Mateo API"
+  },
+  leafletjs: {
+    name: "Leaflet"
+  },
+  react: {
+    name: "React",
+  },
+  css: {
+    name: "CSS puro",
+  },
+  firebase: {
+    name: "Firebase",
+  },
+} as const;
+const projects = [
+  {
+    name: "Tasky",
+    tagline: "Un administrador de tareas",
+    description:
+      "Tasky es una aplicación web inspirada en las aplicaciones de administración de tareas, con la diferencia que Tasky es más ligera. Sus datos de almacenan de forma local en el navegador y cuenta con las funcionalidades principales de un administrador de tareas.",
+    technologies: [
+      technologies.angular,
+      technologies.tailwind,
+      technologies.rxjs,
+      technologies.hotToast,
+    ],
+    githubLink: "https://github.com/claudiaarivera/tasky-app",
+    images: ["./projects/tasky.webp", "./projects/tasky-1.webp"],
+    demoLink: "https://tasky-app-brown.vercel.app/",
+  },
+  {
+    name: "Cloudycast",
+    tagline: "Una app de clima",
+    description:
+      "Cloudycast es una aplicación de clima. Consume de una API pública que provee información de muchos lugares.",
+    technologies: [
+      technologies.angular,
+      technologies.tailwind,
+      technologies.rxjs,
+      technologies.openMateoApi,
+      technologies.leafletjs,
+    ],
+    githubLink: "https://github.com/claudiaarivera/weather-app",
+    images: ["./projects/cloudycast.webp"],
+    demoLink: "https://cloudycast.vercel.app/",
+  },
+  {
+    name: "Burgerqueen",
+    tagline: "Una app de comida rápida",
+    description:
+      "Burgerqueen es una aplicación que simula un ecommerce enfocada en seguir el flujo de compra de productos.",
+    technologies: [
+      technologies.react,
+      technologies.firebase,
+      technologies.css
+    ],
+    githubLink: "https://github.com/claudiaarivera/burgerqueenapp-rivera",
+    images: ["./projects/burgerqueen.webp"],
+    demoLink: "https://burgerqueenapp.netlify.app/",
+  },
+];
+---
+
+<Section title="Proyectos" id="proyectos">
+  <div class="space-y-20">
+    {
+      projects.map(
+        ({
+          name,
+          description,
+          images: [image1, image2],
+          technologies,
+          tagline,
+          demoLink,
+          githubLink,
+        }) => (
+          <article class="flex flex-col gap-y-12 desktop:flex-row desktop:gap-x-14">
+            <div class="flex-shrink-0 relative" class:list={{'desktop:pb-24': image2}} >
+              <img
+                class="object-cover h-60 w-full rounded-2xl border border-gray-200 shadow-xl desktop:-rotate-3 desktop:origin-bottom-right"
+                src={image1}
+                alt=""
+              />
+              {image2 && (
+                <div class="hidden desktop:block size-[205px] absolute -right-7 transform -translate-y-1/2 desktop:rotate-12 desktop:origin-top-right">
+                  <img
+                    class="object-cover size-full rounded-2xl border border-gray-200 shadow-lg"
+                    src={image2}
+                    alt=""
+                  />
+                </div>
+              )}
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold leading-tight	mb-1">
+                <span>{name} </span>—{tagline}
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-6">
+                {technologies.map((technology) => (
+                  <span class="text-gray-600 font-medium text-base">
+                    {technology.name} <span class="text-purple-500">•</span>
+                  </span>
+                ))}
+              </div>
+              <p class="text-gray-700 mb-5">{description}</p>
+              <div class="flex items-center gap-x-2">
+                <a
+                  target="_blank"
+                  href={githubLink}
+                  class="py-2 px-3 inline-flex items-center gap-x-1.5 text-sm font-medium shadow rounded-full border border-purple-300 text-gray-700 bg-purple-300 hover:bg-purple-400 focus:outline-none focus:bg-purple-400 disabled:opacity-50 disabled:pointer-events-none"
+                >
+                  Github
+                  <Github class="size-4"/>
+                </a>
+                <a
+                  target="_blank"
+                  href={demoLink}
+                  class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium shadow rounded-full border border-gray-200 text-gray-700 bg-white hover:text-purple-500 focus:outline-none focus:text-purple-800 disabled:opacity-50 disabled:pointer-events-none"
+                >
+                  Ver demo
+                  <ArrowUpRight class="size-4" />
+                </a>
+              </div>
+            </div>
+          </article>
+        )
+      )
+    }
+  </div>
+</Section>

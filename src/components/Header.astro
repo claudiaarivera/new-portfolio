@@ -1,0 +1,49 @@
+<header class="fixed top-3 left-0 z-40 flex justify-center w-full">
+  <nav
+    class="py-1 px-5 items-center backdrop-blur-md bg-white/70 outline outline-1 outline-gray-300/15 rounded-full shadow-lg flex flex-wrap gap-x-3 tablet:gap-x-5 font-medium text-sm"
+  >
+    <a
+      href="#experiencia"
+      class="hover:text-purple-500 transition-colors py-2 px-1.5">Experiencia</a
+    >
+    <a
+      href="#proyectos"
+      class="hover:text-purple-500 transition-colors py-2 px-1.5">Proyectos</a
+    >
+    <a
+      href="#sobre-mi"
+      class="hover:text-purple-500 transition-colors py-2 px-1.5">Sobre mí</a
+    >
+    <a
+      href="mailto:riveramacedoc@gmail.com"
+      target="_blank"
+      class="hover:text-purple-500 transition-colors py-2 px-1.5 items-center gap-x-1 hidden tablet:inline-flex"
+      >Contacto</a
+    >
+  </nav>
+</header>
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>("nav a");
+  const getActiveSection = () => {
+    return Array.from(sections).find((section) => {
+      const scrollY = window.scrollY;
+      const offset = section.offsetTop;
+      const height = section.clientHeight;
+      const extraOffset = document.documentElement.clientHeight / 2;
+      return scrollY >= offset - extraOffset && scrollY < offset - extraOffset + height;
+    });
+  };
+  const setActiveNavLink = (sectionId?: string) => {
+    navLinks.forEach((navLink) => {
+      navLink.classList.remove("text-purple-500", "font-semibold");
+      if (sectionId && navLink.href.includes(sectionId)) {
+        navLink.classList.add("text-purple-500", "font-semibold");
+      }
+    });
+  };
+  document.addEventListener("scroll", () => {
+    const activeSection = getActiveSection();
+    setActiveNavLink(activeSection?.id);
+  });
+</script>

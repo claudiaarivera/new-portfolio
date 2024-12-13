@@ -1,0 +1,45 @@
+---
+import Section from "../components/Section.astro";
+import ExperienceItem from "./ExperienceItem.astro";
+const workExperiences = [
+  {
+    date: "Ago 2024",
+    role: "Frontend Developer",
+    company: "Gett",
+    description:
+      "Formé parte de un equipo multidiciplinario encargado del desarrollo de una aplicación para la gestión de candidatos. Contribuí al diseño y desarrollo de la arquitectura del proyecto utilizando Angular como framework, implementando formularios reactivos para el manejo de datos, RxJS para la gestión de flujos asíncronos y HttpClient para la integración con APIs. También trabajé en la construcción de la UI, empleando librerías como ng-bootstrap, ng-select, fullcalendar, ngx-editor, entre otras.",
+  },
+  {
+    date: "Dic 2023",
+    role: "Frontend Developer",
+    company: "Empathy",
+    description:
+      "Como parte del equipo de desarrollo me encargué del mantenimiento y personalización de temas en páginas web en Wordpress. Además contribuí al desarrollo de una aplicación de un ecommerce en Vuejs y Strapi.",
+  },
+  {
+    date: "Dic 2022",
+    role: "Frontend Developer",
+    company: "Do.",
+    description:
+      "Trabajé estrechamente con el equipo de diseño y backend para personalizar temas en wordpress y dar mantenimiento a otros. Integré APIs y pasarelas de pago.", 
+  },
+];
+---
+<Section title="Experiencia" id="experiencia">
+  <ol>
+    {
+      workExperiences.map((experience, i) => (
+        <li
+          class:list={[
+            "relative flex flex-col desktop:flex-row desktop:gap-x-32 items-start before:absolute before:block before:border-l-2 before:border-dashed before:top-0 before:left-6  desktop:before:left-36 before:h-full pl-14 desktop:pl-0",
+            {
+              "pb-14": workExperiences.length !== i + 1
+            }
+          ]}
+        >
+          <ExperienceItem {...experience} />
+        </li>
+      ))
+    }
+  </ol>
+</Section>

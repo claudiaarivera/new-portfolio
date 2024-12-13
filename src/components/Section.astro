@@ -1,0 +1,18 @@
+---
+import Sparkles from "./../icons/Sparkles.astro";
+interface Props {
+  title: string;
+  id: string;
+}
+const { title, id } = Astro.props;
+---
+
+<section id={id} class="pt-18 pb-20">
+  <h2 class="text-center mb-16">
+    <span class="inline-flex items-center gap-x-1 py-1.5 px-3 rounded-full text-sm font-medium border border-gray-200 bg-white text-gray-800 shadow-sm">
+     <Sparkles class="size-3.5 text-purple-500"/>
+      <span>{title}</span>
+    </span>
+  </h2>
+  <slot />
+</section>

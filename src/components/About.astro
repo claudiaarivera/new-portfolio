@@ -1,0 +1,41 @@
+---
+import Section from "../components/Section.astro";
+import Asterisk from "../icons/Asterisk.astro";
+---
+
+<Section title="Sobre mí" id="sobre-mi">
+  <div class="flex flex-col gap-y-7 desktop:flex-row items-center desktop:items-center desktop:gap-x-8">
+    <div class="space-y-4 text-gray-600">
+      <p>
+        Mi nombre es <strong class="text-purple-500 font-semibold"
+          >Claudia.</strong
+        > Actualmente tengo 25 años y alrededor de 4 en la industria del desarrollo
+        web.
+      </p>
+      <p>
+        Mi aventura comenzó durante mi adolescencia, mientras personalizaba mi
+        <strong class="text-purple-500 font-semibold">blog en blogger</strong>. Debido a mi curiosidad por entender el código fuente de
+        mi blog busqué tutoriales y empecé escribir mis primeras líneas de
+        código CSS y HTML.
+      </p>
+      <p>
+        Mientras estudiaba la <strong class="text-purple-500 font-semibold">carrera de desarrollo de software</strong> aprendí a
+        programar y ratifiqué mi interés por el desarrollo web específicamente
+        el <strong class="text-purple-500 font-semibold">desarrollo frontend.</strong>
+      </p>
+      <p>
+        Actualmente estoy enfocada en <strong class="text-purple-500 font-semibold">perfeccionar mis conocimientos en Angular</strong>,
+        además de agregar el <strong class="text-purple-500 font-semibold">MEAN stack a mi background profesional</strong> y estar más
+        cerca de ser una desarrolladora full stack en javascript
+        <Asterisk class="inline-flex items-center size-3 text-purple-400"/>
+        <Asterisk class="inline-flex items-center size-3 text-purple-400"/>
+        <Asterisk class="inline-flex items-center size-3 text-purple-400"/>
+      </p>
+    </div>
+    <img
+      class="flex-none drop-shadow-md -order-1 w-64 desktop:w-auto"
+      src="./avatar.webp"
+      alt="Avatar"
+    />
+  </div>
+</Section>

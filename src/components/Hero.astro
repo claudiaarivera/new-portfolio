@@ -1,0 +1,45 @@
+---
+import ArrowRight from "./../icons/ArrowRight.astro";
+import Linkedin from "./../icons/Linkedin.astro";
+import Github from "./../icons/Github.astro";
+import SocialButton from "./../components/SocialButton.astro";
+---
+
+<div class="flex flex-col desktop:flex-row desktop:items-center gap-y-10 desktop:gap-x-10 py-32 desktop:py-40">
+  <img
+    class="shrink-0 size-40 object-cover rounded-full drop-shadow-md"
+    src="./clouds.webp"
+    alt="Claudia Rivera"
+  />
+  <div>
+    <h1 class="text-3xl font-extrabold mb-3.5">Hola, soy Claudia.</h1>
+    <p class="text-xl text-gray-800 mb-4">
+      Soy una <span class="text-purple-500 font-semibold"
+        >desarrolladora frontend</span
+      > ubicada en Lima, Perú. Colaboro en equipos a crear aplicaciones web que generen
+      agradables experiencias.
+    </p>
+    <div class="flex items-center flex-wrap gap-3">
+      <a
+        href="mailto:riveramacedoc@gmail.com"
+        target="_blank"
+        class="py-2.5 px-4 w-full tablet:w-auto inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-full border border-transparent bg-stone-800 text-white hover:bg-stone-700 focus:outline-none focus:bg-zinc-700 transition-colors disabled:opacity-50 disabled:pointer-events-none shadow"
+      >
+        Contáctame
+        <ArrowRight class="size-5"/>
+      </a>
+      <button
+        type="button"
+        class="py-2.5 px-4 w-full tablet:w-auto inline-flex items-center justify-center gap-x-1 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-700 hover:text-purple-500  hover:bg-gray-50 focus:outline-none focus:bg-zinc-700 transition-colors disabled:opacity-50 disabled:pointer-events-none shadow"
+      >
+        Descargar CV
+      </button>
+      <SocialButton href="https://www.linkedin.com/in/claudiariveramacedo/">
+        <Linkedin class="size-5"/>
+      </SocialButton>
+      <SocialButton href="https://github.com/claudiaarivera">
+        <Github class="size-5"/>
+      </SocialButton>
+    </div>
+  </div>
+</div>
